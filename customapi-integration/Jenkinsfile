@@ -9,8 +9,10 @@ def jsonParse(def json) {
 def repo = "AndrewKorell/jenkins-course"
 
 def token = httpRequest authentication: 'github_api', contentType: 'APPLICATION_FORM', httpMode: 'POST', requestBody: 'grant_type=client_credentials', 
-    url: 'https://api.github.com/applications/5c36a02d5ed8f37a81f0/token'
-    user: 'github_api'
+    url: 'https://github.com/login/oauth/access_token'
+    client_id: 'github_api.username'
+    code: '71d83cf98cdf9a8afdc1'
+    redirect_uri: 'http://138.197.148.156:8080'
     header: 'Accept: application/vnd.github+json'
     
 def accessToken = jsonParse(token.content).access_token
